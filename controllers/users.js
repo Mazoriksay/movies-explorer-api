@@ -85,3 +85,8 @@ module.exports.login = (req, res, next) => {
       next(new UnauthorizedError(err.message));
     });
 };
+
+module.exports.signOut = (req, res) => {
+  res.clearCookie('jwt', { httpOnly: true, sameSite: true });
+  res.send('Куки почищены');
+};
