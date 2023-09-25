@@ -5,6 +5,7 @@ const helmet = require('helmet');
 
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+const path = require('path');
 
 const errorHandler = require('./middlewares/error-handler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -31,6 +32,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger);
+
+app.use(express.static(path.join(__dirname, '../../frontend')));
 
 app.use('/', router);
 

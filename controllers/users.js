@@ -79,7 +79,7 @@ module.exports.login = (req, res, next) => {
         maxAge: 360000 * 24 * 7,
         httpOnly: true,
         sameSite: true,
-      }).send({ data: user.toJSON(), token });
+      }).send({ data: user.toJSON() });
     })
     .catch((err) => {
       next(new UnauthorizedError(err.message));
