@@ -13,6 +13,7 @@ module.exports.createMovie = celebrate({
     thumbnail: Joi.string().required().regex(regexLink),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
+    movieId: Joi.number().required(),
   }),
 });
 
