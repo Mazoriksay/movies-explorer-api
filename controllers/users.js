@@ -88,5 +88,5 @@ module.exports.login = (req, res, next) => {
 
 module.exports.signOut = (req, res) => {
   res.clearCookie('jwt', { httpOnly: true, sameSite: true });
-  res.send('Куки почищены');
+  res.send({ message: 'Куки почищены' });
 };
